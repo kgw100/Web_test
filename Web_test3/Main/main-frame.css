@@ -1,0 +1,6 @@
+.main-frame{
+
+  /* 테투리를 설정하는 것   */
+  border:  1px solid rgb(0, 0, 30);
+  border-radius: 6rem;
+}

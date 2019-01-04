@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="kor" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="./style1.css"type="text/css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="box2">
+    <img id="waiting" src="./waiting.png" alt="점검중">
+    <hr id="dash">
+    <div id="d-day"></div>
+    <hr id="normal">
+  <img id="houwon" src="./houwon.png" alt="후원">
+    </div>
+    <script type="text/javascript">
+
+      const countDownDate = new Date("January 14, 2019 00:00:00").getTime();
+
+      //1초마다 갱신되도록 함수 생성,실행
+      const x = setInterval(function() {
+          // 오늘 날짜 등록
+          const now = new Date().getTime();
+
+          // 종료일자에서 현재일자를 뺀 시간
+          const distance = countDownDate - now;
+
+          // 각 변수에 일, 시, 분, 초를 등록
+          const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+          //id가 d-day인 HTML코드에 내용 삽입
+          document.getElementById("d-day").innerHTML = "(2 차) O P E N "+"<br>"+d +"일 " + h + "시간 " + m + "분 " + s + "초 남았습니다.";
+      });
+      //난독화
+      // eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('2 9=a b("g 3, i 8:8:8").c();2 j=k(l(){2 e=a b().c();2 5=9-e;2 d=6.7(5/(4*0*0*f));2 h=6.7((5%(4*0*0*f))/(4*0*0));2 m=6.7((5%(4*0*0))/(4*0));2 s=6.7((5%(4*0))/4);n.o("d-p").q="1차 r "+"<t>"+d+"일 "+h+"시간 "+m+"분 "+s+"초 남았습니다."});',30,30,'60||const||1000|distance|Math|floor|00|countDownDate|new|Date|getTime||now|24|January||2019|x|setInterval|function||document|getElementById|day|innerHTML|OPEN||br'.split('|'),0,{}))
+
+  </script>
+  </body>
+</html>

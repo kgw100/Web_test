@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>emote에 오신 것을 환영합니다.</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+    </script>
+  </head>
+
+  <body>
+    <iframe src="../Waiting/index.html" width = 100% height= 1024px></iframe>
+    <script type="text/javascript">
+    $(document).ready( function() {
+    $("#contents").load("../Waiting/index.html");
+    //~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
+    });
+      function showAlert() {
+        alert("\n EMOTE의 서버 및 데이터 베이스 점검중입니다.\n 이용에 불편을 드려 죄송합니다.\n");
+        }
+    setTimeout(function(){
+    showAlert()}, 1000
+    )
+    document.write(setTimeout());
+    document.write(ready());
+
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html lang="kor" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>안녕하세요.emo-cert에 오신 것을 환영합니다.</title>
+  </head>
+  <body>
+     <div class="man-frame">
+
+     </div>
+  </body>
+</html> -->
+ <!DOCTYPE html>
+<html lang="kor" dir="ltr">
+ <head>
+   <meta name="viewport" content="width=740">
+<!-- <meta name="viewport" content="width=device-width, height=device-hegiht,initial-scale=1.0 "> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <title>환영합니다. EMO-CERT 입니다. </title>
+<link rel="stylesheet" href="./sgv1.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     </head>
+
+       <!-- 상단 -->
+       <div class="top_head">
+       <img class= "EMOTE" onclick="locationHref_e();"
+        border="0" align="absmiddle" src="./emote.png" alt="emote"
+       style="cursor:pointer;" >
+       <img id="y_cert_logo" onclick="locationHref_y();"
+        border="0" align="absmiddle" src="./y_cert.png" alt="y-cert 로고"
+        style="cursor:pointer;" >
+       </div>
+      <!-- 몸통 -->
+     <body>
+<main>
+  <section class="mast" >
+    <img class="mast__bg" src="./black_background.png" alt="배경사진">
+    <header class="mast__header">
+      <p class= "Headline">&lt; EMO-CERT/&gt;</p>
+      <h1 class="mast__title js-spanize">소 개</h1>
+<center>
+      <hr class="sep"/>
+</center>
+      <p class="mast__text js-spanize">연세대학교 컴퓨터정보통신공학부 학술 소모임
+EMOTE 와 Y - CERT의 웹사이트 &quot;EMO - CERT&quot;
+EMO - CERT 사이트에 오신 것을 환영합니다.
+</p>
+    </header>
+  <a onclick="locationHref_y();" class="y_button"><span></span>Y-CERT</a>
+  <a onclick="locationHref_e();" class="e_button"><span></span>EMOTE</a>
+
+
+</main>
+<footer>
+
+</footer>
+<script type="text/javascript">
+
+function locationHref_y()
+{
+  location.href = "./y_cert_hp.html" ;
+}
+function locationHref_e()
+{
+  location.href = "./emote_hp.html";
+}
+function locationReplace()
+{ //예를 www.naver.com은 든 것임
+  newin = window.open('about:blank');
+  newin.location.href = "http://www.naver.com";
+}
+
+  (function($) {  //  글씨 딜레이 표시
+  var s,
+  spanizeLetters = {
+    settings: {
+      letters: $('.js-spanize'),
+    },
+    init: function() {
+      s = this.settings;
+      this.bindEvents();
+    },
+    bindEvents: function(){
+      s.letters.html(function (i, el) {
+        //spanizeLetters.joinChars();
+        var spanizer = $.trim(el).split("");
+        return '<span>' + spanizer.join('</span><span>') + '</span>';
+      });
+    },
+  };
+  spanizeLetters.init();
+})
+(jQuery);
+
+</script>
+</body>
+
+
+</html>
