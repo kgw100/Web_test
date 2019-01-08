@@ -1,61 +1,190 @@
-<!-- <!DOCTYPE html>
-<html lang="kor" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>안녕하세요.emo-cert에 오신 것을 환영합니다.</title>
-  </head>
-  <body>
-     <div class="man-frame">
-
-     </div>
-  </body>
-</html> -->
  <!DOCTYPE html>
 <html lang="kor" dir="ltr">
  <head>
-   <meta name="viewport" content="width=740">
-<!-- <meta name="viewport" content="width=device-width, height=device-hegiht,initial-scale=1.0 "> -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-     <title>환영합니다. EMO-CERT 입니다. </title>
-<link rel="stylesheet" href="./sgv1.css">
+     <meta charset="utf-8">
+ <meta name="viewport" content="width=1024">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!-- 한글 깨짐 방지-->
+<meta http-equiv="Expires" content="-1">
+     <title>환영합니다. EMOCERT 입니다. </title>
+<link rel="stylesheet" href="./sgv1.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="respond.min.js"></script>
+<script src="html5shiv.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
      </head>
 
        <!-- 상단 -->
-       <div class="top_head">
+       <!-- <div class="top_head">
        <img class= "EMOTE" onclick="locationHref_e();"
         border="0" align="absmiddle" src="./emote.png" alt="emote"
        style="cursor:pointer;" >
        <img id="y_cert_logo" onclick="locationHref_y();"
         border="0" align="absmiddle" src="./y_cert.png" alt="y-cert 로고"
         style="cursor:pointer;" >
-       </div>
-      <!-- 몸통 -->
+       </div> -->
+
+      <!-- 몸통-->
      <body>
+
 <main>
   <section class="mast" >
-    <img class="mast__bg" src="./black_background.png" alt="배경사진">
+    <!-- <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">≡</button>
+  <div id="Sites"class="dropdown-content">
+  <a href="">Link 1</a>
+  <a href="">Link 2</a>
+  <a href="">Link 3</a>
+  </div>
+</div> -->
+
+    <div id="sidebar">
+    <li ><a href="#">Home</a></li>
+    <li ><a href="#">Link 1</a></li>
+    <li ><a href="#">Link 2</a></li>
+    <li ><a href="#">Link 3</a></li>
+    <li ><a href="#">Link 4</a></li>
+    <li><a href="#">Link 5</a></li>
+    </div>
+    <button id="sidebarCollapse">≡</button>
+    <div class="overlay"></div>
+</div>
+
+    <img class="mast__bg" src="./yonsei_bg.png" alt="배경사진">
     <header class="mast__header">
-      <p class= "Headline">&lt; EMO-CERT/&gt;</p>
+      <div class="glitch" data-text="Strobocops">
+    <span class="glitch__main">EMOCERT</span>
+    <span class="glitch__line glitch__line--first"></span>
+    <span class="glitch__line glitch__line--second"></span>
+</div>
+
+      <!-- <p class= "Headline">&lt; EMOCERT &gt;</p> -->
       <h1 class="mast__title js-spanize">소 개</h1>
 <center>
       <hr class="sep"/>
 </center>
       <p class="mast__text js-spanize">연세대학교 컴퓨터정보통신공학부 학술 소모임
-EMOTE 와 Y - CERT의 웹사이트 &quot;EMO - CERT&quot;
-EMO - CERT 사이트에 오신 것을 환영합니다.
+EMOTE 와 Y-CERT의 웹사이트 &quot;EMO-CERT&quot;
+EMO-CERT 사이트에 오신 것을 환영합니다.
 </p>
-    </header>
-  <a onclick="locationHref_y();" class="y_button"><span></span>Y-CERT</a>
-  <a onclick="locationHref_e();" class="e_button"><span></span>EMOTE</a>
+  </header>
 
-
+    <a onclick="locationHref_y();" class="y_button"><span>YCERT</span><br> <span>IN</span></a>
+    <a onclick="locationHref_e();" class="e_button"><span>EMOTE</span><br> <span>IN</span></a>
+  </section>
 </main>
+</div>
+
 <footer>
 
 </footer>
 <script type="text/javascript">
+// pc , moblie 체크
+// var filter = "win16|win32|win64|mac|macintel"; if ( navigator.platform ) { if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { //mobile
+//    alert('mobile 접속');
+// } else { //pc
+//   alert('pc 접속');
+//  } }
 
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar').addClass('active');
+    $('.overlay').fadeIn();
+});
+
+$('.overlay').on('click', function () {
+    $('#sidebar').removeClass('active');
+    $('.overlay').fadeOut();
+});
+
+//상단바 네비게이션
+var wrapper    = $("#site-wrapper"),
+    menu       = $(".menu"),
+    menuLinks  = $(".menu ul li a"),
+    toggle     = $(".nav-toggle"),
+    toggleIcon = $(".nav-toggle span");
+
+function toggleThatNav() {
+  if (menu.hasClass("show-nav")) {
+    if (!Modernizr.csstransforms) {
+      menu.removeClass("show-nav");
+      toggle.removeClass("show-nav");
+      menu.animate({
+        right: "-=300"
+      }, 500);
+      toggle.animate({
+        right: "-=300"
+      }, 500);
+    } else {
+      menu.removeClass("show-nav");
+      toggle.removeClass("show-nav");
+    }
+
+  } else {
+    if (!Modernizr.csstransforms) {
+      menu.addClass("show-nav");
+      toggle.addClass("show-nav");
+      menu.css("right", "0px");
+      toggle.css("right", "330px");
+    } else {
+      menu.addClass("show-nav");
+      toggle.addClass("show-nav");
+    }
+  }
+}
+
+function changeToggleClass() {
+  toggleIcon.toggleClass("fa-times");
+  toggleIcon.toggleClass("fa-bars");
+}
+
+$(function() {
+  toggle.on("click", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    toggleThatNav();
+    changeToggleClass();
+  });
+
+    // Keyboard Esc event support
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+      if (menu.hasClass("show-nav")) {
+        if (!Modernizr.csstransforms) {
+          menu.removeClass("show-nav");
+          toggle.removeClass("show-nav");
+          menu.css("right", "-300px");
+          toggle.css("right", "30px");
+          changeToggleClass();
+        } else {
+          menu.removeClass("show-nav");
+          toggle.removeClass("show-nav");
+          changeToggleClass();
+        }
+      }
+    }
+  });
+});
+// function myFunction() {
+//   document.getElementById("Sites").classList.toggle("show");
+// }
+//
+// // Close the dropdown menu if the user clicks outside of it
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+//     var dropdowns = document.getElementsByClassName(".dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//
+//     }
+//   }
+// }
+
+// Y-cert 사이트로 이동
 function locationHref_y()
 {
   location.href = "./y_cert_hp.html" ;
@@ -82,7 +211,7 @@ function locationReplace()
     },
     bindEvents: function(){
       s.letters.html(function (i, el) {
-        //spanizeLetters.joinChars();
+        // spanizeLetters.joinChars();
         var spanizer = $.trim(el).split("");
         return '<span>' + spanizer.join('</span><span>') + '</span>';
       });
@@ -91,6 +220,8 @@ function locationReplace()
   spanizeLetters.init();
 })
 (jQuery);
+
+// navigiton butoon
 
 </script>
 </body>

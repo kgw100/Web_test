@@ -15,12 +15,28 @@
        url('../images/bree-serif-v7-latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../images/bree-serif-v7-latin-ext_latin-regular.svg#BreeSerif') format('svg'); /* Legacy iOS */
 }
+/* cutive-mono-regular - latin */
+header,footer,section,article,aside,nav,hgroup,details,menu,figure,figcaption{
+  display:block;
+}
+@font-face {
+  font-family: 'Cutive Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../images/cutive-mono-v6-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Cutive Mono Regular'), local('CutiveMono-Regular'),
+       url('../images/cutive-mono-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../images/cutive-mono-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../images/cutive-mono-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../images/cutive-mono-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../images/cutive-mono-v6-latin-regular.svg#CutiveMono') format('svg'); /* Legacy iOS */
+}
+
 body {
   margin: 0;
-  width: 100%;
+  width: 100vw;
   font-family: "Cutive Mono", monospace;
   line-height: 1.5;
-  font-weight: 400;
   height: 100vh;
   font-style: normal;
   -ms-text-size-adjust: 100%;
@@ -29,21 +45,77 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-.top_head
+
+
+/* .top_head
 {
+  position: absolute;
+  z-index: 4;
   width: 100%;
- height: 7rem;
- overflow: hidden;
- text-align: right;
- border-bottom: solid 0.9em;
- border-color: gray;
+} */
+ #sidebar {
+   position: absolute;
+    width: 40vw;
+    /* position: fixed; */
+    top: 0;
+    left: -40vw;
+    height: 100vh;
+    z-index: 999;
+    background: #1C1C1C;
+    /* padding: 12px 16px; */
+     /*강제로 지정 */
+    display: block;
+    list-style-type: disc;
+
+  /* box-shadow: 100px 8px 16px 10px rgba(0,0,0,0.2); */
+
 }
-#y_cert_logo
+li , a{
+  text-decoration: none !important;
+  font-size: 3.5vh;
+  font-family: monospace;
+  font-weight: bold;
+  opacity: 0.8;
+}
+a{
+  color:white;
+}
+li
 {
-  float: left;
-  height: 100%;
-  width: 20%;
+  color: #1C1C1C;
 }
+li:hover
+{
+  background-color:#6E6E6E;
+}
+#sidebar.active {
+    left: 0;
+}
+#sidebarCollapse
+{
+  position: relative;
+  z-index: 990;
+  font-size: 8vw;
+  background-color: black;
+  border: none;
+  color: #80FF00;
+  float: right;
+  cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 998;
+    display: none;
+}
+
+
+
+
+
 .Headline{
   text-align: center;
   margin-left: 1rem;
@@ -65,9 +137,10 @@ body {
 }
 
 .mast {
-  position:relative;
+  position: relative;
+  width: 100%;
   display:block;
-  align-items: top;
+  align-items:top;
   height: 100vh;
   color: #80FF00;
   background-color: #111;
@@ -85,6 +158,7 @@ body {
   background: rgba(17, 17, 17, 0.9);
 }
 .mast > header {
+  padding-top: 5%;
   z-index: 4;
   position: relative;
 }
@@ -92,20 +166,18 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
   background-size: cover;
   z-index: 1;
 }
-.mast__header {
-  padding-top:  5%;
-}
+
 .mast__title {
   font-family: "Cutive Mono", monospace;
-  font-size: 1.5em;
-  font-weight: 400;
+  font-size: 180%;
+  font-weight: bold;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
@@ -214,23 +286,48 @@ body {
   -webkit-animation-delay: 1.25s;
           animation-delay: 1.25s;
 }
+
 .mast__text {
   font-family: "Cutive Mono", monospace;
   /* font-family: "Consolas"; */
-  font-size: 1.5em;
+  font-size: 200%;
   margin: 0 0 0.5em;
   line-height: 1.5;
   white-space: pre;
   text-align: center;
   display: block;
-
+  font-weight: bold;
 }
+
 .mast__text span {
-  border-right: .22em solid #2EFE64;
+  border-right: .27em solid #2EFE64;
 
   -webkit-animation: letter-glow 0.7s 0s ease both,  blinkTextCursor 0.73s 0s ease both;
           animation: letter-glow 0.7s 0s ease both,  blinkTextCursor 0.73s 0s ease both;
 }
+
+ /* 모바일 적용시 */
+/* @media ( max-width: 1024px) {
+  .mast__text {
+    font-family: "Cutive Mono", monospace;
+    /* font-family: "Consolas"; */
+    /* font-size: 4em;
+    margin: 0 0 0.5em;
+    line-height: 1.5;
+    white-space: pre;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+  }
+
+  .mast__text span {
+    border-right: 0.3em solid #2EFE64;
+
+    -webkit-animation: letter-glow 0.7s 0s ease both,  blinkTextCursor 0.73s 0s ease both;
+            animation: letter-glow 0.7s 0s ease both,  blinkTextCursor 0.73s 0s ease both;
+  }
+} */
+
 .mast__text span:nth-child(1) {
   -webkit-animation-delay: 0.03s;
           animation-delay: 0.03s;
@@ -992,19 +1089,21 @@ body {
     text-shadow: 0px 0px 20px rgba(255, 255, 255, 0);
   }
 }
+
+/* 버튼 y-cert */
+
 .y_button {
   z-index: 5;
+  display:  inline-block;
 	position: absolute;
-	top: 50%;
-	left: 30%;
-  /* bottom: 40%;
-  left: 28%; */
-	transform: translate(-50%, -30%);
-  margin-top: 20%;
+	left: 15%;
+  /* margin-top: 5%; */
+	/* transform: translate(-150%, 60%); */
 	/* text-transform: uppercase; */
 	/* text-decoration: none; */
+  transform:translateY(25%);
 	text-align: center;
-	/* line-height: 2; */
+	line-height: 2;
 	color: #80FF00;
 	font-size: 2.2em;
 	font-family: "Bree Serif";
@@ -1013,7 +1112,6 @@ body {
 	/* use combination of any two */
 	/* 1. */
 	/* padding: 5px; */
-
 	/* 2. */
 	padding-left: 5px;
 	/* padding-right: 5px; */
@@ -1071,22 +1169,30 @@ body {
   width: 45%;
   height: 50%;
 }
+.y_button:hover
+
+{
+}
+/* emote 버튼  */
+
 .e_button {
   z-index: 5;
 	position: absolute;
-  top: 50%;
-  left: 70%;
-	transform: translate(-50%, -30%);
+  /* top: 50%;
+  left: 70%; */
+  /* margin-top: 10%; */
+  left:65%;
 	/* text-transform: uppercase;
 	text-decoration: none; */
-  margin-top: 20%;
 	text-align: center;
-	/* line-height: 2; */
+	line-height: 2;
 	color: #80FF00;
 	font-size: 2.2em;
 	font-family: "Bree Serif";
 	letter-spacing: 0.5em;
   cursor: pointer;
+  transform:translateY(25%);
+
 	/* use combination of any two */
 	/* 1. */
 	/* padding: 5px; */
@@ -1148,25 +1254,247 @@ body {
   width: 45%;
 	height: 50%;
 }
+/* 버튼 키프레임  */
+@keyframes flash{
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flashText {
+  to {
+    opacity: 0.15;
+  }
+}
+
+ /* 소개 글 텍스트 커서 keyframes */
 @-webkit-keyframes blinkTextCursor{
   from, to {
         border-color: transparent
     }
-    3% {
+    2% {
         border-color: #2EFE64;
     }
-    15% {
+    13% {
         border-color: transparent
     }
 }
+
 @keyframes blinkTextCursor{
   from, to {
         border-color: transparent
     }
-    4% {
+    2% {
         border-color: #2EFE64;
+
     }
-    17% {
+    13% {
         border-color: transparent
     }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+.glitch {
+  animation: glitch-skew 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4s infinite;
+  font-family: orbitron, sans-serif;
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transform-origin: center top;
+}
+.glitch__main {
+  color: #FFF;
+  margin-left: 10%;
+  position: relative;
+  z-index: 0;
+}
+.glitch__color {
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  transform-origin: center center;
+  width: 100%;
+  z-index: -1;
+}
+/* .glitch__color--red {
+  animation: glitch 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  color: red;
+}
+.glitch__color--blue {
+  animation: glitch 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite reverse;
+  color: blue;
+}
+.glitch__color--green {
+  animation: glitch 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 100ms infinite;
+  color: #00FF0B;
+} */
+.glitch__line {
+  animation: glitch-line 2s linear infinite;
+  background: #000;
+  content: '';
+  height: 3%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.glitch__line--first {
+  animation: glitch-line 2s linear infinite;
+}
+.glitch__line--second {
+  animation: glitch-line 1s linear 1s infinite;
+}
+
+ /* @keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-8px, 8px);
+  }
+  40% {
+    transform: translate(-8px, -8px);
+  }
+  60% {
+    transform: translate(8px, 8px);
+  }
+  80% {
+    transform: translate(8px, -8px);
+  }
+  100% {
+    transform: translate(0);
+  }
+} */
+/* @keyframes glitch-skew {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  48% {
+    transform: skew(0deg, 0deg);
+    filter: blur(0);
+  }
+  50% {
+    transform: skew(-20deg, 0deg);
+    filter: blur(4px);
+  }
+  52% {
+    transform: skew(20deg, 0deg);
+  }
+  54% {
+    transform: skew(0deg, 0deg);
+    filter: blur(0);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+} */
+@keyframes glitch-line {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+}
+
+
+.glitch {
+  animation: glitch-skew 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4s infinite;
+  font-family: orbitron, sans-serif;
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transform-origin: center top;
+}
+.glitch__main {
+  color: #FFF;
+}
+.glitch__color {
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  transform-origin: center center;
+  width: 100%;
+  z-index: -1;
+}
+ .glitch__line {
+  animation: glitch-line 2s linear infinite;
+  background: #000;
+  content: '';
+  height: 3%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+ .glitch__line--first {
+  animation: glitch-line 2s linear infinite;
+}
+ .glitch__line--second {
+  animation: glitch-line 1s linear 1s infinite;
+}
+
+ /* @keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-8px, 8px);
+  }
+  40% {
+    transform: translate(-8px, -8px);
+  }
+  60% {
+    transform: translate(8px, 8px);
+  }
+  80% {
+    transform: translate(8px, -8px);
+  }
+  100% {
+    transform: translate(0);
+  }
+} */
+/* html>body #header @keyframes glitch-skew {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  48% {
+    transform: skew(0deg, 0deg);
+    filter: blur(0);
+  }
+  50% {
+    transform: skew(-20deg, 0deg);
+    filter: blur(4px);
+  }
+  52% {
+    transform: skew(20deg, 0deg);
+  }
+  54% {
+    transform: skew(0deg, 0deg);
+    filter: blur(0);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+} */
+ @keyframes glitch-line {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
 }

@@ -3,28 +3,38 @@
   <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=740">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+     <link rel="stylesheet" href="./y_cert.css">
     <title>Y-CERT에 오신 것을 환영합니다.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
 
   </head>
   <body>
+
     <iframe src="../Waiting/index.html" width = 100% height= 1024px></iframe>
+
     <script type="text/javascript">
 
-      function showAlert() {
-   alert("\n Y-CERT의 서버 및 데이터 베이스 점검중입니다.\n 이용에 불편을 드려 죄송합니다.\n");
-   }
-   setTimeout(function(){
-  showAlert()}, 1000
-  )
+  // 서버 점검중 메시지
+  function showAlert() {
+alert("\n Y-CERT의 서버 및 데이터 베이스 점검중입니다.\n 이용에 불편을 드려 죄송합니다.\n");
+}
+setTimeout(function(){
+showAlert()}, 1000
+)
 
-   document.write(setTimeout());
-   $(document).ready( function () {
-   $("#contents").load("../Waiting/index.html");
-   //~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
- });
+document.write(setTimeout());
+$(document).ready( function () {
+$("#contents").load("../Waiting/index.html");
+//~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
+});
+
+
+}
     </script>
+
     <div id="contents">
       </div>
 
